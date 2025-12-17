@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madison Voytko - Mechanical Systems Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f5f1eb;
+            --bg-card: #ffffff;
+            --accent-warm: #c4956c;
+            --accent-deep: #8b6f47;
+            --text-primary: #2c2419;
+            --text-secondary: #6b5d4f;
+            --text-tertiary: #9b8f7f;
+            --border-color: #e8dfd5;
+            --border-accent: #d4c4b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 5rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .name-section h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .name-section .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.6rem 1.3rem;
+            border: 1px solid var(--border-accent);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-links a:hover {
+            background: var(--accent-warm);
+            color: white;
+            border-color: var(--accent-warm);
+            transform: translateY(-2px);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: var(--accent-warm);
+        }
+
+        /* About Section */
+        .about {
+            margin-bottom: 6rem;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        /* Skills Section */
+        .skills {
+            margin-bottom: 6rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent-warm);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(139, 111, 71, 0.08);
+        }
+
+        .skill-category h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent-deep);
+            font-weight: 600;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .skill-category li::before {
+            content: '—';
+            color: var(--accent-warm);
+            margin-right: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects {
+            margin-bottom: 6rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-warm);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-warm);
+            box-shadow: 0 12px 32px rgba(139, 111, 71, 0.1);
+        }
+
+        .project-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.7rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .project-date {
+            font-size: 0.9rem;
+            color: var(--accent-deep);
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .project-highlights {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent-warm);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .project-highlights h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--accent-deep);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-highlights li {
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .project-highlights li::before {
+            content: '→';
+            color: var(--accent-warm);
+            margin-right: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-image {
+            width: 100%;
+            border-radius: 2px;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 0.4rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            color: var(--accent-deep);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="name-section">
+                    <h1>Madison Voytko</h1>
+                    <p class="subtitle">Biomedical Engineering • Mechanical Design</p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:Madison.Voytko@colorado.edu">Email</a>
+                    <a href="https://www.linkedin.com/in/madison-voytko/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/madisonvoytko" target="_blank">GitHub</a>
+                    <a href="Voytko_Madison_Resume.pdf" target="_blank">Resume</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="about">
+                <h2 class="section-title">About</h2>
+                <p class="about-text">
+                    I'm a Biomedical Engineering student at the University of Colorado Boulder specializing in musculoskeletal systems and microphysiological modeling. My research focuses on joint-on-chip systems and osteoarthritis modeling, where I combine mechanical design, microfluidics, and biological analysis to develop novel in vitro platforms. I'm passionate about translating research innovations into practical medical device solutions and manufacturing applications that improve patient outcomes.
+                </p>
+            </section>
+
+            <section class="skills">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>CAD & Design</h3>
+                        <ul>
+                            <li>SolidWorks</li>
+                            <li>ABAQUS (FEA)</li>
+                            <li>3D Modeling</li>
+                            <li>Device Prototyping</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Lab & Fabrication</h3>
+                        <ul>
+                            <li>PDMS Microfabrication</li>
+                            <li>Microfluidics</li>
+                            <li>Confocal Microscopy</li>
+                            <li>Sterile Technique</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Analysis & Programming</h3>
+                        <ul>
+                            <li>ImageJ/FIJI</li>
+                            <li>MATLAB</li>
+                            <li>Data Analysis</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Research & Systems</h3>
+                        <ul>
+                            <li>Experimental Design</li>
+                            <li>Mechanobiology</li>
+                            <li>Tissue Engineering</li>
+                            <li>Medical Devices</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <!-- PROJECT 1: Joint-on-Chip -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Joint-on-Chip Mechanotransduction Platform</h3>
+                            <p class="project-date">August 2024 – Present</p>
+                        </div>
+                        <p class="project-description">
+                            Designed and fabricated a microfluidic device to investigate osteoarthritis progression through controlled mechanical stimulation of cartilage and bone tissues. Current experimental models fail to replicate the physiological mechanical environment that drives joint disease, limiting drug development and treatment strategies. This platform addresses that gap by integrating pressure-driven actuation with multi-compartment architecture to generate shear forces that mimic natural joint articulation.
+                        </p>
+
+                        <img src="images/IMG_8609.jpeg" alt="PDMS joint-on-chip devices with integrated microfluidic channels" class="project-image">
+                        
+                        <div class="project-highlights">
+                            <h4>Key Contributions</h4>
+                            <ul>
+                                <li>Designed multi-layer chip architecture in SolidWorks featuring separate shear and compression chambers with integrated membrane interface</li>
+                                <li>Optimized PDMS fabrication workflow including plasma bonding protocols and 50 μm membrane integration to prevent air leakage</li>
+                                <li>Developed controlled actuation system using synchronized syringe pumps to generate reproducible cyclic shear deformation</li>
+                                <li>Performed confocal microscopy imaging and ImageJ displacement analysis across 12 trials, achieving <15% device-to-device variance</li>
+                                <li>Building ABAQUS finite element model to predict tissue-level stress distributions under physiological loading conditions</li>
+                                <li>Establishing sterile workflows for sequential bone and cartilage tissue integration and viability assessment protocols</li>
+                            </ul>
+                        </div>
+
+                        <p class="project-description">
+                            This platform addresses critical limitations in osteoarthritis research by providing human-relevant mechanical stimuli that conventional models cannot replicate. By enabling controlled investigation of cartilage-bone mechanotransduction, the device supports future studies on early disease mechanisms and therapeutic interventions—advancing toward personalized treatment strategies for the 88% of adults over 45 affected by OA.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="tag">SolidWorks</span>
+                            <span class="tag">ABAQUS</span>
+                            <span class="tag">PDMS Fabrication</span>
+                            <span class="tag">Microfluidics</span>
+                            <span class="tag">Confocal Microscopy</span>
+                            <span class="tag">ImageJ</span>
+                            <span class="tag">Experimental Design</span>
+                            <span class="tag">Tissue Engineering</span>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 2: MRI Phantom -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Biomimetic Brain Phantom for Quantitative MRI</h3>
+                            <p class="project-date">August 2024 – Present • 6-Person Team • CaliberMRI Partnership</p>
+                        </div>
+                        <p class="project-description">
+                            Served as Test & Systems Engineer on a cross-functional team developing a quantitative MRI brain phantom in partnership with CaliberMRI to standardize clinical imaging calibration. Designed and executed comprehensive verification testing program to validate phantom performance against stakeholder specifications. Developed three critical test protocols: spectrophotometric diffusion analysis, mechanical compression testing, and bubble-leak sealing evaluation.
+                        </p>
+                        
+                        <div class="project-highlights">
+                            <h4>Key Contributions</h4>
+                            <ul>
+                                <li>Designed spectrophotometric diffusion test protocol quantifying solute transfer across 300 µm barriers over 48 hours</li>
+                                <li>Developed mechanical compression testing procedure validating structural integrity under assembly loads with safety margins</li>
+                                <li>Created bubble-leak evaluation protocol with vacuum and pressure testing to assess seal performance</li>
+                                <li>Conducted diffusion experiments demonstrating <1% solute transfer, confirming effective compartment isolation</li>
+                                <li>Performed mechanical testing validating walls withstand required loads with adequate safety margin</li>
+                                <li>Collaborated with CaliberMRI stakeholders to align test protocols with clinical imaging requirements</li>
+                                <li>Analyzed multi-modal experimental data and uncertainty propagation to validate design specifications</li>
+                            </ul>
+                        </div>
+
+                        <p class="project-description">
+                            Through rigorous experimental validation, confirmed the phantom system meets critical performance specifications for compartment isolation, structural integrity, and seal reliability. The comprehensive testing program established manufacturing feasibility and identified integration requirements necessary for advancing toward barrier-free phantom designs, enabling CaliberMRI to pursue clinical standardization of quantitative MRI measurements across healthcare institutions.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="tag">Test Engineering</span>
+                            <span class="tag">Spectrophotometry</span>
+                            <span class="tag">Mechanical Testing</span>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Design Verification</span>
+                            <span class="tag">Protocol Development</span>
+                            <span class="tag">Medical Devices</span>
+                            <span class="tag">Systems Integration</span>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 3: MPOWR Startup -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Startup Operations & Systems Design</h3>
+                            <p class="project-date">May 2024 – August 2024 • MPOWR Kickboxing</p>
+                        </div>
+                        <p class="project-description">
+                            Contributed to the launch and operational development of MPOWR Kickboxing, a fitness franchise startup, working directly with the founder to design scalable business systems and member experiences. Engineered the complete member onboarding process from concept to implementation, creating workflows, training materials, and documentation to support franchise scalability.
+                        </p>
+                        
+                        <div class="project-highlights">
+                            <h4>Key Contributions</h4>
+                            <ul>
+                                <li>Designed complete member onboarding system including workflows, documentation, and training materials for franchise scalability</li>
+                                <li>Created standardized operational protocols for client deliverables ensuring consistency across team members</li>
+                                <li>Developed training curriculum for proprietary platforms, reducing new team member ramp-up time and improving operational efficiency</li>
+                                <li>Applied user-centered design principles to optimize client experience and streamline operational workflows</li>
+                                <li>Collaborated directly with founder to translate business vision into implementable operational systems and processes</li>
+                                <li>Led social media strategy and content creation, building brand awareness and driving early-stage membership growth</li>
+                                <li>Managed client outreach and community engagement, cultivating loyal member base during critical launch phase</li>
+                            </ul>
+                        </div>
+
+                        <p class="project-description">
+                            Demonstrated ability to translate engineering problem-solving skills to business operations, designing scalable systems that supported successful franchise launch and early growth. The standardized processes and training materials developed enable consistent service delivery across future franchise locations, positioning MPOWR for sustainable expansion while maintaining quality standards and member satisfaction.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="tag">Systems Design</span>
+                            <span class="tag">Process Optimization</span>
+                            <span class="tag">Workflow Development</span>
+                            <span class="tag">Training Systems</span>
+                            <span class="tag">Technical Documentation</span>
+                            <span class="tag">Operations Management</span>
+                            <span class="tag">Startup Experience</span>
+                            <span class="tag">Community Building</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Madison Voytko • Biomedical Engineering • University of Colorado Boulder</p>
+        </footer>
+    </div>
+</body>
+</html>
